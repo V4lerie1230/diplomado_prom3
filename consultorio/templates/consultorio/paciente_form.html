@@ -1,0 +1,20 @@
+{% extends './../base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Paciente</title>
+{% endblock %}
+
+{% block titulo %}
+crear paciente
+{% endblock %}
+
+
+{% block lead %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ form.non_field_errors }}
+    {{ field.errors }}
+    <button type="submit">Save changes</button>
+</form>{% endblock %}
