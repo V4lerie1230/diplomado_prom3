@@ -15,37 +15,22 @@ class Jugador(models.Model):
 
     def age(self):
         local_tz = get_localzone()
-        now = datetime.now(local_tz)
+        today = datetime.now(local_tz).date()
         birthday = self.fecha_de_nacimiento
-        rd = rdelta.relativedelta(now, birthday)
-        if rd.years:
-            name_year = 'años'
-            name_months = 'meses'
-            if rd.years == 1:
-                name_year = 'año'
+        rd = rdelta.relativedelta(today, birthday)
+        return rd.years
 
-            if rd.months == 1:
-                name_months = 'mes'
-
-            return "{0.years} {name_year} {0.months} {name_months}".format(
-                rd,
-                name_year=name_year,
-                name_months=name_months
-            )
-
-        else:
-            name_months = 'meses'
-            name_days = 'días'
-            if rd.months == 1:
-                name_months = 'mes'
-
-            if rd.days == 1:
-                name_days = 'día'
-            return "{0.months}  {name_months}, {0.days} {name_days}".format(
-                rd,
-                name_months=name_months,
-                name_days=name_days
-            )
+    def categoria(self):
+        age = self.age()
+        category = {
+            18: "Cat J",
+            19: "Cat J",
+            20: "Cat A",
+            21: "Cat A",
+            22: "Cat C",
+            23: "Cat C",
+        }
+        return category.get(age, "Cat No")
 
 
 class Profesor(models.Model):
