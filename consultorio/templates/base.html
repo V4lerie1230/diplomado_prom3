@@ -17,12 +17,12 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
           <div class="inner">
-            <h3 class="masthead-brand">Consultorio Médico</h3>
+            <h3 class="masthead-brand">Club Promesas</h3>
             <nav class="nav nav-masthead justify-content-center">
               <a class="nav-link active" href="{% url 'consultorio:home' %}">Home</a>
-              <a class="nav-link" href="{% url 'consultorio:lista-pacientes' %}">Pacientes</a>
-              <a class="nav-link" href="{% url 'consultorio:medicos' %}">Médicos</a>
-              <a class="nav-link" href="{% url 'consultorio:especialidades' %}">especialidad</a>
+              <a class="nav-link" href="{% url 'consultorio:lista-pacientes' %}">Jugadores</a>
+              <a class="nav-link" href="{% url 'consultorio:medicos' %}">Profesores</a>
+              <a class="nav-link" href="{% url 'consultorio:especialidades' %}">Partidos</a>
             </nav>
           </div>
         </header>
@@ -34,28 +34,26 @@
           </h1>
           <p class="lead">
                     {% block lead %}
-                                      Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-
-                  {% endblock %}
+                    {% endblock %}
 
           <p class="lead">
             {% block actions %}
             {% endblock %}
-            <a href="#" class="btn btn-lg btn-secondary">Agendar cita</a>
+            
           </p>
         </main>
 
         <footer class="mastfoot mt-auto">
           <div class="inner">
-            <p>Develop by <a href="https://getbootstrap.com/">Valerie</a></p>
           </div>
         </footer>
       </div>
   </body>
 </html>
 
-
-# home = home
-# pacientes = jugadores
-# medicos = profesores
-# especialidades = partidos
+<!--  
+ home = home
+ pacientes = jugadores
+ medicos = profesores
+ especialidades = partidos
+-->

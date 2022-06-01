@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block titulo %}
-  Informacion de los pacientes
+  Informacion de los jugadores
 
 {% endblock %}
 
@@ -14,7 +14,7 @@
 {% block lead %}
 
 <h1>
-    lista de paciente:
+    lista de jugadores:
 </h1>
 {% for paciente in paciente_list %}
     <a href="{% url 'consultorio:detalle-paciente'  paciente.uniqueId %}">
@@ -23,7 +23,7 @@
 {% endfor %}
 
     <a href="{% url 'consultorio:crear-pacientes' %}" class="btn btn-lg btn-success">
-    Crear Pacientes
+    Crear jugadores
     </a>
 
 {% endblock %}
