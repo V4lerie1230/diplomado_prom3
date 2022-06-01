@@ -13,15 +13,34 @@
 
 {% block lead %}
 
-<h1>
-    lista de jugadores:
-</h1>
-{% for jugador in jugador_list %}
-    <a href="{% url 'consultorio:detalle-jugador'  jugador.uniqueId %}">
-        {{ jugador.nombre }} -- {{ jugador.apellido }}
-    </a><br>
-{% endfor %}
 
+<div class="container">
+    <h2>Lista de jugadores</h2>            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>apellido</th>
+          <th>Edad</th>
+          <th>Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for jugador in jugador_list %}
+        <tr>
+            <td><a href="{% url 'consultorio:detalle-jugador'  jugador.uniqueId %}">
+                {{ jugador.nombre }} 
+            </a></td>
+            <td>{{jugador.apellido}}</td>
+            <td>{{jugador.age}}</td>
+            <td>{{jugador.categoria}}</td>
+          </tr>
+          
+    {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
     <a href="{% url 'consultorio:crear-jugadores' %}" class="btn btn-lg btn-success">
     Crear jugadores
     </a>
