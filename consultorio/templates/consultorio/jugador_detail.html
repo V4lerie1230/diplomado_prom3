@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-<title>Paciente</title>
+<title>Jugador</title>
 {% endblock %}
 
 {% block titulo %}
-  Informacion del pacientes
+  Informacion del jugador
 
 {% endblock %}
 
@@ -17,14 +17,14 @@
     Fecha Nacimento:    {{ object.fecha_de_nacimiento }} <br>
 
     <h2> Acciones </h2>
-    <a href="{% url 'consultorio:lista-pacientes' %}" class="btn  btn-primary">
-    Volver a la lista de Pacientes
+    <a href="{% url 'consultorio:lista-jugadores' %}" class="btn  btn-primary">
+    Volver a la lista de jugadores
     </a>
-    <a href="{% url 'consultorio:eliminar-paciente' object.uniqueId %}" class="btn  btn-danger">
-    Eliminar paciente
+    <a href="{% url 'consultorio:eliminar-jugador' object.uniqueId %}" class="btn  btn-danger">
+    Eliminar jugador
     </a>
 
-    <form method="post" action="{% url 'consultorio:eliminar-paciente' object.uniqueId %}">
+    <form method="post" action="{% url 'consultorio:eliminar-jugador' object.uniqueId %}">
         {% csrf_token %}
         <input type="submit" value="Delete">
     </form>

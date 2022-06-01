@@ -4,52 +4,52 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import render
 
-from .models import Cita_medica, Doctor, Paciente
+from .models import Partidos, Profesor, Jugador
 
 # Create your views here.
 
-def numero_de_citas(request):
-    citas = Cita_medica.objects.all()
+def numero_de_partidos(request):
+    partidos = Partidos.objects.all()
 
     context = {
-        "numero_citas": len(citas)
+        "numero_de_partidos": len(partidos)
     }
-    return render(request, 'numero_citas_medicas.html', context)
+    return render(request, 'numero_de_partidos.html', context)
 
 
-def get_doctores_list(request):
-    doctores = Doctor.objects.all()
+def get_profesor_list(request):
+    profesores = Profesor.objects.all()
 
     context = {
-        'doctores': doctores
+        'profesores': profesores
     }
-    return render(request, 'doctor_list.html', context)
+    return render(request, 'profesores_list.html', context)
 
 
-class PacienteListView(ListView):
-    model = Paciente
-    context_object_name = 'paciente_list'
-    template_name = 'paciente_list.html'
+class JugadorListView(ListView):
+    model = Jugador
+    context_object_name = 'jugador_list'
+    template_name = 'jugador_list.html'
 
 
-class PacienteDetailView(DetailView):
-    model = Paciente
+class JugadorDetailView(DetailView):
+    model = Jugador
 
-class PacienteCreateView(CreateView):
-    model = Paciente
+class JugadorCreateView(CreateView):
+    model = Jugador
     fields = ['nombre', 'apellido', 'fecha_de_nacimiento']
-    # success_url = reverse_lazy('consultorio:lista-pacientes')
+    # success_url = reverse_lazy('consultorio:lista-jugadores')
 
     def get_success_url(self):
-        return reverse('consultorio:detalle-paciente', kwargs={'pk': self.object.pk})
+        return reverse('consultorio:detalle-jugador', kwargs={'pk': self.object.pk})
 
 
-class PacienteUpdateView(UpdateView):
-    model = Paciente
+class JugadorUpdateView(UpdateView):
+    model = Jugador
     fields = ['nombre', 'apellido', 'fecha_de_nacimiento']
-    success_url = reverse_lazy('consultorio:lista-pacientes')
+    success_url = reverse_lazy('consultorio:lista-jugadores')
 
 
-class PacienteDeleteView(DeleteView):
-    model = Paciente
-    success_url = reverse_lazy('consultorio:lista-pacientes')
+class JugadorDeleteView(DeleteView):
+    model = Jugador
+    success_url = reverse_lazy('consultorio:lista-jugadores')
